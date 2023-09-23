@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well-Designed Form</title>
+    <style>
+     {% if result %}
+        p {
+            font-size: 40px;
+            color: #800000;
+            padding: 2px;
+            font: poppins;
+            font-width: 30px;
+        }
+        {% endif %}
+     body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+
+        }
+        .form-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #088F8F;
+            border: 3px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            margin-top: -250px;
+            margin-right: 60px;
+        }
+        .container {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            height: 40vh;
+             margin-top: 50px;/* Adjust to your desired height */
+        }
+
+        /* Styled heading on the left */
+        .styled-text {
+            font-size: 100px; /* Adjust the font size as needed */
+            color: #FFFFFF; /* Adjust the color as needed */
+            text-align: left; /* Align text to the left */
+            margin-left: 20px; /* Adjust the left margin as needed */
+        }
+        /* Styling for form fields */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form-group input[type="text"]{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Styling for the submit button */
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+ <body>
+    <div class="container">
+        <h1 class="styled-text">Student<br>
+            Placement <br>
+            Predictor</h1>
+    </div>
+    <div class="form-container">
+        <h2>STUDENT PLACEMENT PREDICTOR</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="CGPA">CGPA:</label>
+                <input type="text" id="cgpa" name="cgpa" required>
+            </div>
+            <div class="form-group">
+                <label for="IQ">IQ:</label>
+                <input type="text" id="iq" name="iq" required>
+            </div>
+            <div class="form-group">
+                <label for="Profile_Score">Profile Score:</label>
+                <input type="text" id="profile_score" name="profile_score" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
